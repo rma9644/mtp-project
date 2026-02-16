@@ -2,7 +2,7 @@ backports.tarfile==1.2.0
 fqdn==1.5.1
 importlib-metadata==8.7.1
 ipython
-isoduration==20.11.0i
+isoduration==20.11.0
 jaraco-context==6.1.0
 jaraco-functools==4.4.0
 jaraco.text==4.0.0
