@@ -1,17 +1,10 @@
-FROM mcr.microsoft.com/devcontainers/python:3.12
+FROM python:3.12.1-slim-bullseye
+USER root
 
-# Python runtime hygiene
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+RUN apt-get update && \
+    apt-get -y install --reinstall ca-certificates && \
+    apt-get -y install software-properties-common && \
+    pip install --upgrade pip
 
-# Create virtual environment
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
-
-# Upgrade pip + build tooling (important for py3.12)
-RUN pip install --upgrade pip setuptools wheel
-
-# Install project dependencies
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt
-
+# # Install Basic Packages
+# RUN pip install -f requirements.txt
